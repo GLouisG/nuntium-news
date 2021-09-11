@@ -36,3 +36,22 @@ def sources_result_processer(sources_list):
     source_object = Sources(id, name, source_address)
     listed_sources.append(source_object)
   return listed_sources  
+def find_articles(source_address):
+  '''
+  Function to get json response from the url request
+  '''
+  get_articles_url = article_base_url.format(source_address, api_key)
+  with urllib.request.urlopen(get_articles_url) as url:
+    get_articles_data = url.read()
+    get_articles_response=json.loads(get_articles_data)
+
+    articles_results = None
+
+    if get_articles_response['articles']:
+      articles_results_list = get_articles_response['articles']
+      articles_results = articles_result_processer(articles_results_list)
+  return articles_results
+def articles_result_processer(the_articles_list):  
+  '''
+  function to process articles results
+  '''
