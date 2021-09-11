@@ -61,6 +61,7 @@ def articles_result_processer(the_articles_list):
   '''
   listed_articles=[]
   for article_item in the_articles_list:
+    id = article_item.get('id')
     name = article_item.get('name')
     author = article_item.get('author')
     title = article_item.get('title')
@@ -68,6 +69,6 @@ def articles_result_processer(the_articles_list):
     articleurl = article_item.get('url')
     imageurl = article_item.get('urlToImage')
 
-    article_object = Articles(name, author, description, title, description,articleurl,imageurl)
+    article_object = Articles(id, name, author, description, title, description,articleurl,imageurl)
     listed_articles.append(article_object)
   return listed_articles  
