@@ -5,7 +5,11 @@
   
     <ul>
       {% for newssource in sourceinfo %}
-      <li><p>{{newssource.name}}</p></li>
+      <li>
+        <a href="/newspieces/{{newssource.source_id}}">
+          <p>{{newssource.name}}</p>
+        </a>
+      </li>
       {%endfor%}
     </ul>
 
