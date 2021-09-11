@@ -4,7 +4,7 @@ class Sources:
     self.name = name
     self.sourceaddress = url
 class Articles:
-  def __init__(self, id, name, author, title, description, url, urlToImage):
+  def __init__(self, id, name, author, title, description, url, urlToImage, publishedAt):
     self.id = id
     self.name = name
     self.author = author
@@ -12,3 +12,4 @@ class Articles:
     self.description = description
     self.articleurl = url
     self.imageurl = urlToImage
+    self.publishtime = publishedAt
