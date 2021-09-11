@@ -1,22 +1,22 @@
 from flask import Flask
 from config import config_options
-# from flask_bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap
 
-
+bootstrap = Bootstrap()
 
 
 def create_app(config_name):
-  app = Flask(__name__, template_folder='templates')
+  app = Flask(__name__,template_folder='templates')
   app.config.from_object(config_options[config_name])
 
-
+  bootstrap.init_app(app)
   #register the blueprint
-  from .main import Blueprint as main_blueprint
-  app.register_blueprint(main_blueprint)
+  from .main import main as mains_blueprint
+  app.register_blueprint(mains_blueprint)
 
-  #REMEMBER TO UNCOMMENT ME
 
-  # bootstrap.init_app(app)
+
+  
 
 
 

@@ -7,11 +7,17 @@ class Config:
 class ProdConfig(Config) :
 
 
-    pass 
+  pass 
 class DevConfig(Config):
+  '''
+    Development  configuration child class of Config
 
+    Args:
+    Config: The parent configuration class with General configuration settings
+  
+  '''
 
-    DEBUG = True
+  DEBUG = True
 
 config_options = {
 'development':DevConfig,

@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class='container'>
+  <h1>SOURCES</h1>
+  
+    <ul>
+      {% for newssource in sourceinfo %}
+      <li><p>{{newssource.name}}</p></li>
+      {%endfor%}
+    </ul>
+
+
+</div>
+{% endblock %}
