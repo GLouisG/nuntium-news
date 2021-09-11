@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import Sources
+from .models import Articles, Sources
 
 api_key = None
 article_base_url = None
@@ -11,6 +11,9 @@ def configure_request(app):
   sources_base_url = app.config['SOURCES_BASE_URL']
 
 def find_sources(info):
+  '''
+  get json for sources and calls out result processor
+  '''
   get_sources_url = sources_base_url.format(api_key)
   
   with urllib.request.urlopen(get_sources_url) as url:
@@ -54,4 +57,17 @@ def find_articles(source_address):
 def articles_result_processer(the_articles_list):  
   '''
   function to process articles results
+  the_articles_list is articles_results_list
   '''
+  listed_articles=[]
+  for article_item in the_articles_list:
+    name = article_item.get('name')
+    author = article_item.get('author')
+    title = article_item.get('title')
+    description = article_item.get('description')
+    articleurl = article_item.get('url')
+    imageurl = article_item.get('urlToImage')
+
+    article_object = Articles(name, author, description, title, description,articleurl,imageurl)
+    listed_articles.append(article_object)
+  return listed_articles  
