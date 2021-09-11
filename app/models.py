@@ -2,7 +2,7 @@ class Sources:
   def __init__(self, id, name, url):
     self.id = id
     self.name = name
-    self.sourceaddress = url
+    self.source_address = url
 class Articles:
   def __init__(self, id, name, author, title, description, url, urlToImage, publishedAt):
     self.id = id

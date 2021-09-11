@@ -21,6 +21,18 @@ def find_sources(info):
 
     if get_sources_response['sources']:
       sources_results_list = get_sources_response['sources']
-      sources_results = process_results(sources_results_list)
+      sources_results = sources_result_processer(sources_results_list)
   return sources_results
-      
+def sources_result_processer(sources_list):
+  '''
+  sources_list sources_results_list
+  '''      
+  listed_sources=[]
+  for source_item in sources_list:
+    id = source_item.get('id')
+    name = source_item.get('name')
+    source_address = source_item.get('url')
+
+    source_object = Sources(id, name, source_address)
+    listed_sources.append(source_object)
+  return listed_sources  
