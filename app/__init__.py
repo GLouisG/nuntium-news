@@ -18,15 +18,14 @@ def create_app(config_name):
 
   # bootstrap.init_app(app)
 
-  # # Will add the views and forms
-  # # Registering the blueprint
-  # from .main import main as main_blueprint
-  # app.register_blueprint(main_blueprint)
-  # #We first import the instance we just created then we call the register_blueprint() method on the application instance and pass in the blueprint.
+
+
+ 
+
 
   # # setting config
-  # from .request import configure_request
-  # configure_request(app)
+  from .requests import configure_request
+  configure_request(app)
 
 
 
