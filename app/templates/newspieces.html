@@ -1,24 +1,35 @@
 {%extends 'base.html'%}
-<div class='container-fluid'>
 
-</div>
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+{% endblock %}
+
 {%block content%}
-  <h1>{{title}}</h1>
+<body class="newspiece-body">
+  <div class="container-fluid article-container">
+  <h1 class="h1article">{{title.upper()}}</h1>
   {%for article_item in les_articles%}
   
-  <div class="card">
-    {%if article_item.imageurl!= "null" %} 
-    <img class="articleimg" src="{{article_item.imageurl}}" alt="article image">
-    {%else%}
-    <img class="articleimg" src="https://image.freepik.com/free-vector/people-showcasing-different-types-ways-access-news_53876-66059.jpg" alt="news picture generic">
-    {%endif%}
-    <a href="{{article_item.articleurl}}">
-      <h4>{{article_item.title}}</h4>
-    </a>
-    <br>
-    <p>By {{article_item.author}}</p>
-    <p>{{article_item.description}}</p>
-    <p><b>{{article_item.publishtime}}</b></p>
-  </div>
+    <div class="card dearticles">
+      {%if article_item.imageurl!= "null" %} 
+      <img class="articleimg" src="{{article_item.imageurl}}" alt="article image">
+      {%else%}
+      <img class="articleimg" src="https://image.freepik.com/free-vector/people-showcasing-different-types-ways-access-news_53876-66059.jpg" alt="news picture generic">
+      {%endif%}
+      <a href="{{article_item.articleurl}}">
+        <h4>{{article_item.title}}</h4>
+      </a>
+      <br>
+      <p>By {{article_item.author}}</p>
+      <p>Description: {{article_item.description}}</p>
+      <p><b>{{article_item.publishtime}}</b></p>
+    </div>
   {%endfor%}
+  </div>
+</body>
+
+
+
+  
 {%endblock %}

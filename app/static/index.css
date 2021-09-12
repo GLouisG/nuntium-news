@@ -1,0 +1,45 @@
+body{
+
+  text-align: center ;
+  height: 100%;
+  width: 100vw;
+  
+}
+ul.sourceul{
+  list-style-type: none;
+  width: 100%;
+}
+li.sourceli{
+  border: solid rgb(6, 120, 212) 1px;
+ 
+}
+li.sourceli:hover{
+  background-color: rgb(26, 131, 180);
+
+}
+li.sourceli:hover a{
+  color: white;
+  
+}
+
+.dearticles{
+  border: solid 1px gray;
+  width: 70%;
+  margin: 0;
+}
+.articleimg{
+  width: 70%;
+}
+.container-fluid{
+  text-align: center
+}
+.newspiece-body{
+  position: relative
+}
+.article-container{
+  position: absolute;
+  left: 25%;
+}
+.h1article{
+  margin-right: 30%;
+}
