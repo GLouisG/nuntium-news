@@ -32,18 +32,18 @@ def sources_result_processer(sources_list):
   '''      
   listed_sources=[]
   for source_item in sources_list:
-    id = source_item.get('id')
+    source_id = source_item.get('id')
     name = source_item.get('name')
     source_address = source_item.get('url')
 
-    source_object = Sources(id, name, source_address)
+    source_object = Sources(source_id, name, source_address)
     listed_sources.append(source_object)
   return listed_sources  
-def find_articles(source_address):
+def find_articles(source_id):
   '''
   Function to get json response from the url request
   '''
-  get_articles_url = article_base_url.format(source_address, api_key)
+  get_articles_url = article_base_url.format(source_id, api_key)
   with urllib.request.urlopen(get_articles_url) as url:
     get_articles_data = url.read()
     get_articles_response=json.loads(get_articles_data)
@@ -68,7 +68,8 @@ def articles_result_processer(the_articles_list):
     description = article_item.get('description')
     articleurl = article_item.get('url')
     imageurl = article_item.get('urlToImage')
+    publishtime = article_item.get('publishedAt')
 
-    article_object = Articles(id, name, author, description, title, description,articleurl,imageurl)
+    article_object = Articles(id, name, author, description, title,articleurl,imageurl, publishtime)
     listed_articles.append(article_object)
   return listed_articles  

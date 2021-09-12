@@ -1,8 +1,8 @@
 class Sources:
   def __init__(self, id, name, url):
-    self.id = id
+    self.source_id = id
     self.name = name
-    self.source_address = url
+    self.source_address = url[10:]
 class Articles:
   def __init__(self, id, name, author, title, description, url, urlToImage, publishedAt):
     self.id = id
